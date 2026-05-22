@@ -1,0 +1,67 @@
+{
+  "bio": {
+    "statusText": "Open to opportunities",
+    "roleText": "Full-stack dev · AI/ML incoming",
+    "bioPara": "2nd-year CS student and full-stack developer expanding into AI/ML. I care about clean backend architecture and ruthlessly optimized code. Outside the terminal, my downtime goes entirely into fencing, 3D product renders, and JDM car culture."
+  },
+  "stack": [
+    "React",
+    "Node.js",
+    "Express",
+    "Three.js",
+    "Python",
+    "C++",
+    "Arch Linux",
+    "Blender"
+  ],
+  "playlist": [
+    {
+      "title": "The Blonde",
+      "artist": "TV Girl",
+      "src": "/music/the-blonde.mp3"
+    },
+    {
+      "title": "Loving Machine",
+      "artist": "TV Girl",
+      "src": "/music/loving-machine.mp3"
+    },
+    {
+      "title": "Roses",
+      "artist": "Kanye West",
+      "src": "/music/roses.mp3"
+    },
+    {
+      "title": "Through The Wire",
+      "artist": "Kanye West",
+      "src": "/music/through-the-wire.mp3"
+    },
+    {
+      "title": "Sweet",
+      "artist": "CAS",
+      "src": "/music/sweet.mp3"
+    },
+    {
+      "title": "Opera House",
+      "artist": "CAS",
+      "src": "/music/opera-house.mp3"
+    }
+  ],
+  "projects": [
+    {
+      "id": "1",
+      "name": "GlowAroma",
+      "status": "live",
+      "desc": "Full-stack e-commerce candle shop. Custom configurator, role-based admin.",
+      "tags": [
+        "React",
+        "Node.js",
+        "MariaDB",
+        "Three.js"
+      ],
+      "url": "https://github.com/Bellogello/Glow-Aroma",
+      "featured": true,
+      "liveUrl": "https://glow-aroma.vercel.app",
+      "repoUrl": "https://github.com/Bellogello/Glow-Aroma"
+    }
+  ]
+}

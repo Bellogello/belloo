@@ -196,3 +196,15 @@ nav.scrolled {
   88%  { opacity: .18; transform: translate(-50%,-50%) scale(1); }
   100% { opacity: 0; transform: translate(-50%,-50%) scale(1.03); }
 }
+
+
+/* 1. Kill the native cursor everywhere, forever */
+* {
+  cursor: none !important;
+}
+
+/* 2. Ensure the custom cursors don't block you from clicking links */
+#cur, #spotlight {
+  pointer-events: none !important;
+  z-index: 9999; /* Keeps them on top of everything */
+}
