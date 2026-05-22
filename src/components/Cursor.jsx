@@ -5,6 +5,9 @@ export default function Cursor() {
   const spotlightRef = useRef(null);
 
   useEffect(() => {
+    if (window.matchMedia("(pointer: coarse)").matches) {
+    return; // Don't even run the setup
+  }
     // Failsafe: Don't run on mobile/touch screens
     if (!window.matchMedia("(pointer:fine)").matches) return;
     

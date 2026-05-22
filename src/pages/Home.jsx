@@ -18,8 +18,15 @@ function Skeleton({ w = "100%", h = 28 }) {
 }
 
 export default function Home({ data }) {
+    const navigate = (e, path) => {
+    e.preventDefault();
+    window.history.pushState({}, "", path);
+    window.dispatchEvent(new PopStateEvent('popstate'));
+  };
+  
   const { bio, stack, projects } = data || {};
   const loading = !data; 
+  
   
   // ── UI STATE ───────────────────────────────────────────────────
   const [choiceId, setChoiceId] = useState(null);
@@ -91,7 +98,7 @@ export default function Home({ data }) {
             className="btn-secondary px-8 py-4 font-mono text-xs uppercase tracking-widest flex items-center gap-2 hover-target outline-none">
             GitHub
           </a>
-          <a href="#projects"
+          <a href="/projects" onClick={(e) => navigate(e, "/projects")}
             className="btn-secondary px-8 py-4 font-mono text-xs uppercase tracking-widest flex items-center gap-2 hover-target outline-none">
             <span className="material-symbols-outlined text-lg" style={{ color:"#FFB347" }}>arrow_forward</span>
             Projects
