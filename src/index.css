@@ -47,16 +47,23 @@ body::before {
 
 /* Custom cursor */
 #cur {
-  position: fixed; top: 0; left: 0;
-  width: 8px; height: 8px;
-  background: #cabeff;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 10000;
-  transform: translate(-50%,-50%);
-  transition: width .2s, height .2s, background .2s;
-  mix-blend-mode: difference;
-  will-change: transform;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  background-color: #cabeff; /* The soft purple from your image */
+  border-radius: 50%; /* Forces the perfect circle */
+  border: none; /* Kills that dashed square */
+  pointer-events: none !important;
+  z-index: 99999;
+  
+  /* GPU Acceleration & Anti-aliasing */
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  
+  /* Smooth animation */
+  transition: width 0.25s ease-out, height 0.25s ease-out, background-color 0.25s ease-out;
 }
 #cur.big {
   width: 28px; height: 28px;

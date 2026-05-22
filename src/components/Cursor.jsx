@@ -1,35 +1,31 @@
 import { useEffect, useRef } from 'react';
 
 export default function Cursor() {
-  const cursorRef    = useRef(null);
+  const cursorRef = useRef(null);
   const spotlightRef = useRef(null);
 
   useEffect(() => {
+    // Failsafe: Don't run on mobile/touch screens
     if (!window.matchMedia("(pointer:fine)").matches) return;
     
     let mx = window.innerWidth / 2, my = window.innerHeight / 2;
     let cx = mx, cy = my, rafId;
     
-    // The smoothing formula
-    const lerp = (a, b, t) => a + (b - a) * t;
+    const lerp = (start, end, factor) => start + (end - start) * factor;
 
     const onMove = e => {
       mx = e.clientX; 
       my = e.clientY;
-      // Note: We do NOT update CSS here anymore. That causes lag.
     };
     
     const loop = () => {
-      // 0.25 gives it that premium "float" without feeling heavy/sluggish like 0.15 did
-      cx = lerp(cx, mx, .25); 
-      cy = lerp(cy, my, .25);
+      cx = lerp(cx, mx, 0.25); 
+      cy = lerp(cy, my, 0.25);
       
-      // Update the trailing dot using hardware-accelerated 3D transforms
       if (cursorRef.current) {
-        cursorRef.current.style.transform = `translate3d(${cx}px,${cy}px,0) translate(-50%,-50%)`;
+        cursorRef.current.style.transform = `translate3d(${cx}px, ${cy}px, 0) translate(-50%, -50%)`;
       }
       
-      // Update the spotlight instantly, but ONLY when the monitor is ready to draw a frame
       if (spotlightRef.current) {
         spotlightRef.current.style.setProperty("--mx", `${mx}px`);
         spotlightRef.current.style.setProperty("--my", `${my}px`);
@@ -38,14 +34,15 @@ export default function Cursor() {
       rafId = requestAnimationFrame(loop);
     };
 
-    const addBig    = () => cursorRef.current?.classList.add("big");
+    const addBig = () => cursorRef.current?.classList.add("big");
     const removeBig = () => cursorRef.current?.classList.remove("big");
 
-    // passive: true prevents the listener from blocking scrolling/animations
     document.addEventListener("mousemove", onMove, { passive: true });
     rafId = requestAnimationFrame(loop);
 
+    // ── THIS IS WHERE THE ERROR WAS ──
     const attachHovers = () => {
+      // The string inside querySelectorAll must be perfectly wrapped in quotes
       document.querySelectorAll(".hover-target, button, a").forEach(el => {
         el.removeEventListener("mouseenter", addBig);
         el.removeEventListener("mouseleave", removeBig);
