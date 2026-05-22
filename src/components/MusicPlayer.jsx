@@ -1,43 +1,50 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { AudioContext } from '../context/AudioContext';
 
-// Fallback playlist just in case your JSON doesn't load instantly
 const DEFAULT_PLAYLIST = [
-  { title: "Loving Machine", artist: "TV Girl", src: "/music/track1.mp3" },
-  { title: "No Surprises", artist: "Radiohead", src: "/music/track2.mp3" }
+  { title: "Loving Machine", artist: "TV Girl", src: "/music/loving-machine.mp3" },
+  { title: "The Blonde", artist: "TV Girl", src: "/music/the-blonde.mp3" }
 ];
 
 export default function MusicPlayer({ playlist = DEFAULT_PLAYLIST }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [idx, setIdx] = useState(0);
-  const audioRef = useRef(null);
+  
+  // ── ACCESS THE PERSISTENT AUDIO ELEMENT ──
+  const audio = useContext(AudioContext);
 
-  // Safely grab the current song
   const safePlaylist = playlist?.length ? playlist : DEFAULT_PLAYLIST;
   const current = safePlaylist[idx];
 
-  // Handle Play/Pause and set default quiet volume
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.volume = 0.15; // Set volume to 15% (Quiet)
-      if (isPlaying) {
-        audioRef.current.play().catch(() => setIsPlaying(false));
-      } else {
-        audioRef.current.pause();
-      }
+  // Sync state with the persistent audio element
+useEffect(() => {
+    if (!audio) return;
+
+    // 1. Only change the source if it's actually different
+    if (audio.src !== window.location.origin + current.src) {
+      audio.src = current.src;
     }
-  }, [isPlaying, idx]);
+
+    audio.volume = 0.15;
+
+    // 2. Play or Pause based on state
+    if (isPlaying) {
+      audio.play().catch(err => console.error("Playback failed", err));
+    } else {
+      audio.pause();
+    }
+
+    const onEnded = () => setIdx((i) => (i + 1) % safePlaylist.length);
+    audio.addEventListener('ended', onEnded);
+    
+    return () => audio.removeEventListener('ended', onEnded);
+  }, [isPlaying, current.src, audio]); // Removed idx and playlist length as deps
 
   if (!current) return null;
 
   return (
     <div id="np">
-      <audio 
-        ref={audioRef} 
-        src={current.src} 
-        onEnded={() => setIdx((i) => (i + 1) % safePlaylist.length)} 
-      />
-      
       {/* ── THE VINYL ── */}
       <svg 
         className={`vinyl hover-target ${isPlaying ? "spin" : ""}`} 
