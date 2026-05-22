@@ -11,7 +11,7 @@ const BADGE = { live: "Live", wip: "In progress", next: "Coming soon" };
 const BADGE_COLOR = { live: "#6FD98B", wip: "#cabeff", next: "#6A6080" };
 
 // Headline split for the stagger animation
-const HEADLINE_WORDS = "I write code and build systems.".split(" ");
+const HEADLINE_WORDS = "Code, architecture, and raw performance.".split(" ");
 
 export default function App() {
   const [isPlaying, setIsPlaying] = useState(true);
@@ -122,7 +122,7 @@ export default function App() {
           </h1>
 
           <p className="font-body text-lg text-on-surface-variant mb-12 max-w-xl leading-relaxed">
-            Full-stack developer and CS senior. Currently testing software at Kemet Technologies and expanding into AI/ML. I focus on backend architecture, databases, and writing code that executes without the extra noise.
+            2nd-year CS student and full-stack developer expanding into AI/ML. I care about clean backend architecture and ruthlessly optimized code. Outside the terminal, my downtime goes entirely into fencing, 3D product renders, and JDM car culture.
           </p>
 
           <div className="flex flex-wrap gap-4">
@@ -181,7 +181,7 @@ export default function App() {
           <div className="md:col-span-8">
             <h2 className="font-display text-3xl text-on-surface mb-6">Behind the commits.</h2>
             <div className="space-y-5 text-on-surface-variant leading-relaxed">
-              <p>I'm Belal, a 19-year-old 4th-year CS student in Egypt.</p>
+              <p>I'm Belal, a 19-year-old 2nd-year CS student in Egypt.</p>
               <p>My focus is on backend architecture, databases, and competitive programming. When I'm not shipping full-stack code, my time goes into training on the fencing piste, working on 3D visualization in Blender, or obsessing over 90s JDM cars.</p>
               <p>I believe in zero-bloat architecture, raw performance, and building tools from scratch until they run perfectly. That's the whole pitch.</p>
             </div>
