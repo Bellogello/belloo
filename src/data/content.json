@@ -62,6 +62,21 @@
       "featured": true,
       "liveUrl": "https://glow-aroma.vercel.app",
       "repoUrl": "https://github.com/Bellogello/Glow-Aroma"
+    },
+    {
+      "name": "Synq",
+      "desc": "A mobile-first productivity web app for students, combining relational task management with an aesthetic Pomodoro focus timer. Users organize study material by subject and topic, run timed focus sessions, and track completed work in an archive system — all synced to the cloud across devices.",
+      "status": "live",
+      "tags": [
+        "React",
+        "Vite",
+        "Tailwind CSS",
+        "Supabase (PostgreSQL)",
+        "React Router"
+      ],
+      "liveUrl": "https://synq-study.vercel.app/",
+      "repoUrl": "https://github.com/Bellogello/Synq",
+      "id": "1779930725337"
     }
   ]
 }
