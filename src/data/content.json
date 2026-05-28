@@ -76,7 +76,8 @@
       ],
       "liveUrl": "https://synq-study.vercel.app/",
       "repoUrl": "https://github.com/Bellogello/Synq",
-      "id": "1779930725337"
+      "id": "1779930725337",
+      "featured": true
     }
   ]
 }
