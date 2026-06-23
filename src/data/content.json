@@ -2,7 +2,7 @@
   "bio": {
     "statusText": "Open to opportunities",
     "roleText": "Full-stack dev · AI/ML incoming",
-    "bioPara": "2nd-year CS student and full-stack developer expanding into AI/ML. I care about clean backend architecture and ruthlessly optimized code. Outside the terminal, my downtime goes entirely into fencing, 3D product renders, and JDM car culture."
+    "bioPara": "3rd-year CS student and full-stack developer expanding into AI/ML. I care about clean backend architecture and ruthlessly optimized code. Outside the terminal, my downtime goes entirely into fencing, 3D product renders, and JDM car culture."
   },
   "stack": [
     "React",
@@ -78,6 +78,18 @@
       "repoUrl": "https://github.com/Bellogello/Synq",
       "id": "1779930725337",
       "featured": true
+    },
+    {
+      "name": "Vanity",
+      "desc": "A sleek, frameless desktop mirror for Linux Wayland. Vanity is a lightweight QML/Qt6 widget that drops a clean, borderless camera feed at the top of your screen — a quick digital pocket mirror for checking yourself before a video call or screen recording. Built natively for Wayland compositors like Hyprland, it features a true horizontally-flipped mirror feed, a smooth 800ms drop-down animation tuned to camera warmup time, and a one-click install script for seamless launcher integration.",
+      "status": "live",
+      "tags": [
+        "Qt6 / QML",
+        "QT Multimedia",
+        "Bash"
+      ],
+      "repoUrl": "https://github.com/Bellogello/vanity",
+      "featured": false
     }
   ]
 }

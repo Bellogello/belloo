@@ -187,7 +187,7 @@ export default function Home({ data }) {
         <div className="md:col-span-8">
           <h2 className="font-display text-3xl text-on-surface mb-6">Behind the commits.</h2>
           <div className="space-y-5 text-on-surface-variant leading-relaxed">
-            <p>I'm Belal, a 19-year-old 4th-year CS student in Egypt.</p>
+            <p>I'm Belal, a 19-year-old 3rd-year CS student in Egypt.</p>
             <p>My focus is on backend architecture, databases, and competitive programming. When I'm not shipping full-stack code, my time goes into training on the fencing piste, working on 3D visualization in Blender, or obsessing over 90s JDM cars.</p>
             <p>I believe in zero-bloat architecture, raw performance, and building tools from scratch until they run perfectly. That's the whole pitch.</p>
           </div>
